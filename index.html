@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let Him Cook — YouTube Video Editing Studio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#F7F3E9',
+                        paper: '#EFE9DA',
+                        darkbrown: '#2C1D11',
+                        terracotta: '#D15838',
+                        burntorange: '#E07A5F',
+                        mustard: '#E0A838',
+                        softteal: '#3D7A74',
+                    },
+                    fontFamily: {
+                        display: ['Fraunces', 'Syne', 'serif'],
+                        handwritten: ['Caveat', 'cursive'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* SVG / CSS Texture Overlay for subtle paper effect */
+        .paper-bg {
+            background-color: #F7F3E9;
+            background-image: radial-gradient(#d3c8b4 0.75px, transparent 0.75px), radial-gradient(#d3c8b4 0.75px, #F7F3E9 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        /* Handwritten underline effect */
+        .hand-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .hand-underline::after {
+            content: '';
+            position: absolute;
+            left: -4%;
+            bottom: -8px;
+            width: 108%;
+            height: 12px;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'%3E%3Cpath d='M5,12 Q 75,3 150,11 T 295,7' fill='none' stroke='%23D15838' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+        }
+
+        /* Custom Rotation Utility Classes */
+        .tilt-left { transform: rotate(-1.8deg); }
+        .tilt-right { transform: rotate(1.8deg); }
+        .tilt-slightly { transform: rotate(-0.8deg); }
+
+        /* Smooth reveal transitions */
+        .reveal-box {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover animation for sticky note button */
+        .sticky-btn {
+            box-shadow: 4px 6px 0px rgba(44, 29, 17, 0.9);
+            transition: all 0.2s ease;
+        }
+        .sticky-btn:hover {
+            transform: translateY(-3deg) rotate(1deg);
+            box-shadow: 6px 10px 0px rgba(44, 29, 17, 0.9);
+        }
+        .sticky-btn:active {
+            transform: translateY(1px);
+            box-shadow: 2px 3px 0px rgba(44, 29, 17, 0.9);
+        }
+
+        /* Custom cursor style override for interactive vibes */
+        .cursor-pointer-custom {
+            cursor: pointer;
+        }
+
+        /* Modal backdrop blurring */
+        .modal-blur {
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body class="paper-bg text-darkbrown font-body min-h-screen selection:bg-burntorange selection:text-white overflow-x-hidden relative">
+
+    <nav class="w-full max-w-5xl mx-auto px-6 py-6 flex justify-between items-center z-10 relative">
+        <div class="font-handwritten text-3xl font-bold text-darkbrown hover:text-terracotta transition cursor-default">
+            let him cook studio.
+        </div>
+        <a href="#contact-section" class="font-handwritten text-2xl font-bold border-b-2 border-darkbrown hover:text-terracotta hover:border-terracotta transition">
+            book a call &#8594;
+        </a>
+    </nav>
+
+    <section class="max-w-4xl mx-auto px-4 pt-10 pb-8 text-center relative">
+        <h1 class="font-display text-5xl md:text-8xl font-black tracking-tight leading-none text-darkbrown uppercase mb-2">
+            LET HIM
+        </h1>
+        <div class="relative inline-block my-2">
+            <span class="font-display text-6xl md:text-9xl font-black tracking-wider text-terracotta hand-underline uppercase italic pr-2">
+                COOOOOOOOK!
+            </span>
+        </div>
+        
+        <!-- Little floating hand drawn star -->
+        <div class="absolute right-6 top-16 hidden md:block opacity-70">
+            <svg width="45" height="45" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 2L30 18L46 25L30 32L25 48L20 32L4 25L20 18L25 2Z" stroke="#2C1D11" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 my-8 relative">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+            
+            <!-- Handwritten Annotation with Arrow -->
+            <div class="md:w-1/4 text-center md:text-right font-handwritten text-2xl md:text-3xl text-softteal leading-snug tilt-left order-2 md:order-1">
+                <p>we got tired of explaining what we do, have a look!</p>
+                <div class="hidden md:block mt-2 flex justify-end">
+                    <svg class="w-20 h-16 ml-auto transform translate-x-4" viewBox="0 0 100 60" fill="none">
+                        <path d="M10 10 C 40 10, 80 20, 85 50 M 70 42 L 85 50 L 88 35" stroke="#3D7A74" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Tilted Video Container Frame -->
+            <div class="w-full md:w-3/4 order-1 md:order-2">
+                <div class="relative bg-darkbrown rounded-2xl p-3 md:p-4 shadow-2xl border-4 border-darkbrown tilt-right transition duration-300 hover:rotate-0">
+                    <!-- YouTube Screen Mockup / Interactive Player -->
+                    <div id="video-frame" class="relative aspect-video bg-black rounded-lg overflow-hidden group cursor-pointer" onclick="toggleVideoPlay()">
+                        <!-- Mock Thumbnail Poster -->
+                        <img id="video-poster" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" alt="Video Showreel Thumbnail" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition duration-500">
+                        
+                        <!-- Thumbnail Text Overlay -->
+                        <div id="video-overlay" class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-between p-6">
+                            <div class="flex justify-between items-center">
+                                <span class="bg-terracotta text-cream px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase font-body">
+                                    Showreel 2026
+                                </span>
+                                <span class="text-white/80 font-mono text-xs">01:45</span>
+                            </div>
+                            
+                            <div class="text-left">
+                                <h3 class="text-white font-display text-2xl md:text-4xl font-black uppercase tracking-tight">
+                                    GOOD CUTS.<br>NO NONSENSE.
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Big Central Play Button -->
+                        <button id="play-btn" class="absolute inset-0 m-auto w-20 h-20 bg-terracotta hover:bg-burntorange text-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                            <svg class="w-10 h-10 ml-1 fill-current" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+
+                        <!-- Hidden Embed Video (Plays on click) -->
+                        <iframe id="youtube-iframe" class="hidden w-full h-full absolute inset-0" src="" title="Studio Showreel Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <!-- Player Bottom Bar -->
+                    <div class="flex justify-between items-center pt-3 px-2 text-cream font-mono text-xs">
+                        <span class="opacity-75">examples_of_great_footage_we_edited.mp4</span>
+                        <span class="text-mustard font-bold">1080p HD</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 my-20">
+        <!-- Handwritten Intro -->
+        <div class="text-center mb-10">
+            <p class="font-handwritten text-2xl md:text-4xl text-softteal font-bold max-w-2xl mx-auto leading-relaxed">
+                you are still here! i'm guessing you liked the showreel.<br class="hidden md:inline"> we won't bother you anymore, here's our prices)
+            </p>
+        </div>
+
+        <!-- Price Notes Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            
+            <!-- Tier 1 -->
+            <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-right transition duration-300 text-center relative group">
+                <span class="font-display text-5xl font-black text-darkbrown block mb-1">€300</span>
+                <p class="font-handwritten text-2xl text-terracotta font-bold">for 1 long video.</p>
+                <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">great quality, trust. &#10003;</p>
+            </div>
+
+            <!-- Tier 2 (Highlighted) -->
+            <div class="p-6 rounded-2xl bg-white border-2 border-darkbrown shadow-xl tilt-right hover:scale-105 transition duration-300 text-center relative">
+                <div class="absolute -top-4 right-4 bg-mustard text-darkbrown font-handwritten font-bold text-lg px-3 py-0.5 rounded-full border border-darkbrown rotate-6">
+                    best value!
+                </div>
+                <span class="font-display text-6xl font-black text-terracotta block mb-1">€600</span>
+                <p class="font-handwritten text-2xl text-darkbrown font-bold">for 4 videos.</p>
+                <p class="font-body text-xs font-semibold text-darkbrown/80 mt-1">yeah, we're serious. &#10003;</p>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-slightly transition duration-300 text-center relative">
+                <span class="font-display text-5xl font-black text-darkbrown block mb-1">€1000</span>
+                <p class="font-handwritten text-2xl text-softteal font-bold">for 8 videos.</p>
+                <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">trust us, you'll need them. &#10003;</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="w-full bg-terracotta py-12 px-6 my-16 border-y-4 border-darkbrown relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-display text-4xl md:text-7xl font-black text-cream uppercase tracking-wider mb-8">
+                THAT'S NOT ALL!
+            </h2>
+
+            <!-- Interactive Trigger Button -->
+            <div class="relative inline-block my-2">
+                <button id="initial-click-btn" onclick="revealNextStep(1)" class="sticky-btn bg-mustard text-darkbrown font-display text-3xl font-black px-10 py-5 rounded-xl border-3 border-darkbrown cursor-pointer-custom uppercase tracking-wide">
+                    click me
+                </button>
+
+                <!-- Handwritten Arrow pointing at button -->
+                <div class="absolute -right-32 -top-6 hidden md:flex items-center gap-2 font-handwritten text-2xl text-cream font-bold rotate-6">
+                    <svg class="w-12 h-12 stroke-current text-cream" viewBox="0 0 50 50" fill="none">
+                        <path d="M 40 25 Q 20 20 10 35 M 10 35 L 20 32 M 10 35 L 15 25" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span>click it. trust me..</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reveal-sequence-container" class="max-w-3xl mx-auto px-4 my-8 min-h-[100px]">
+        
+        <!-- Step 1 Reveal: Creative Ideas -->
+        <div id="reveal-step-1" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Brainstorming Ideas" class="w-full h-48 object-cover">
+                </div>
+                <div class="w-full md:w-1/2 text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 01 / Ideas</span>
+                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                        "creative ideas — we sit, we argue, we come up with stuff. this is the part where your video gets good."
+                    </p>
+                    <button onclick="revealNextStep(2)" class="mt-6 sticky-btn bg-burntorange text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                        click me next
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 Reveal: Editing Magic -->
+        <div id="reveal-step-2" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-right">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=600&q=80" alt="Editing Timeline" class="w-full h-48 object-cover">
+                </div>
+                <div class="w-full md:w-1/2 text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-softteal font-mono">Step 02 / Editing</span>
+                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                        "editing — this is where the magic happens. or where we fix the mess."
+                    </p>
+                    <button onclick="revealNextStep(3)" class="mt-6 sticky-btn bg-softteal text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                        keep clicking
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 Reveal: Thumbnails -->
+        <div id="reveal-step-3" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-left">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Thumbnail Design Drafts" class="w-full h-48 object-cover">
+                </div>
+                <div class="w-full md:w-1/2 text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-mustard font-mono">Step 03 / Thumbnails</span>
+                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                        "thumbnails — we make people click. that's the whole job."
+                    </p>
+                    <button onclick="revealNextStep(4)" class="mt-6 sticky-btn bg-mustard text-darkbrown font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                        one more click
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 Reveal: Final Views & Outcome -->
+        <div id="reveal-step-4" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Analytics and Views" class="w-full h-48 object-cover">
+                </div>
+                <div class="w-full md:w-1/2 text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 04 / Results</span>
+                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                        "and then it goes out. and people watch. and you come back for more."
+                    </p>
+                    <a href="#boring-section" class="inline-block mt-6 sticky-btn bg-darkbrown text-cream font-display text-lg font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                        okay, that's enough clicking &#8595;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="boring-section" class="max-w-4xl mx-auto px-6 pt-16 pb-12 my-12 border-t-2 border-darkbrown/15">
+        <h2 class="font-display text-4xl md:text-5xl font-black text-darkbrown uppercase tracking-tight mb-8 text-left">
+            BORING STUFF COMING
+        </h2>
+
+        <!-- 2x2 Grid of Plain-English Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            
+            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
+                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
+                    <span>&#10003;</span> What you get
+                </h3>
+                <p class="text-darkbrown/90 text-sm leading-relaxed">
+                    A finished long-form edit, cleaned up audio, sound effects that actually make sense, and the master video ready for YouTube.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
+                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
+                    <span>&#10003;</span> Revisions
+                </h3>
+                <p class="text-darkbrown/90 text-sm leading-relaxed">
+                    Two revision rounds are included. "Can we make the title pop more" is fine once. Not 6 times.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
+                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
+                    <span>&#10003;</span> Turnaround
+                </h3>
+                <p class="text-darkbrown/90 text-sm leading-relaxed">
+                    Usually around 3-4 days. Good video editing takes a minute, and we prefer not sleeping on the floor.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
+                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
+                    <span>&#10003;</span> What we Don't do
+                </h3>
+                <p class="text-darkbrown/90 text-sm leading-relaxed">
+                    Daily vlog overhauls, 15-minute corporate webinars, or editing video clips for $5.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-6 text-right">
+            <span class="font-handwritten text-xl text-softteal font-bold italic">
+                read 16:02. important stuff.
+            </span>
+        </div>
+    </section>
+
+    <footer id="contact-section" class="w-full bg-darkbrown text-cream pt-16 pb-20 px-6 mt-16 text-center relative">
+        <div class="max-w-3xl mx-auto">
+            <p class="font-handwritten text-3xl text-mustard mb-4 font-bold">
+                got raw footage? let's talk.
+            </p>
+
+            <button onclick="openBookingModal()" class="font-display text-5xl md:text-7xl font-black text-cream hover:text-terracotta transition underline decoration-terracotta decoration-4 underline-offset-8">
+                book a call
+            </button>
+
+            <p class="font-body text-sm text-cream/60 mt-8">
+                or send us an email directly: <a href="mailto:hello@lethimcook.studio" class="text-mustard font-bold hover:underline">hello@lethimcook.studio</a>
+            </p>
+
+            <div class="mt-16 pt-8 border-t border-cream/10 text-xs text-cream/40 flex flex-col md:flex-row justify-between items-center gap-4">
+                <span>&copy; 2026 Let Him Cook Studio. Three people in a room.</span>
+                <span>No corporate fluff.</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="booking-modal" class="fixed inset-0 bg-darkbrown/80 modal-blur z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-paper border-4 border-darkbrown rounded-2xl max-w-md w-full p-8 relative shadow-2xl tilt-slightly">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-darkbrown font-bold text-2xl hover:text-terracotta">
+                &times;
+            </button>
+            
+            <h3 class="font-display text-3xl font-black text-darkbrown mb-2">
+                LET'S BOOK A CALL
+            </h3>
+            <p class="font-handwritten text-2xl text-terracotta font-bold mb-6">
+                no 45-minute slide deck. just 10 mins to see if we match.
+            </p>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">Your Name</label>
+                    <input type="text" required placeholder="Alex" class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
+                </div>
+                <div>
+                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">YouTube Channel URL</label>
+                    <input type="url" required placeholder="youtube.com/@yourchannel" class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
+                </div>
+                <div>
+                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">What are you editing?</label>
+                    <textarea rows="3" placeholder="I shoot podcasts / travel vlogs / tech reviews..." class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-terracotta hover:bg-burntorange text-cream font-display text-xl font-bold py-4 rounded-lg border-2 border-darkbrown transition shadow-md">
+                    SEND IT OVER
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Track reveal progress
+        let currentStep = 0;
+
+        function revealNextStep(stepNumber) {
+            // Hide previous trigger button on step 1
+            if (stepNumber === 1) {
+                const initBtn = document.getElementById('initial-click-btn');
+                if (initBtn) {
+                    initBtn.parentElement.style.display = 'none';
+                }
+            }
+
+            // Unhide step container
+            const targetStep = document.getElementById(`reveal-step-${stepNumber}`);
+            if (targetStep) {
+                targetStep.classList.remove('hidden');
+                targetStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Toggle Video Play state with Embed YouTube
+        function toggleVideoPlay() {
+            const poster = document.getElementById('video-poster');
+            const overlay = document.getElementById('video-overlay');
+            const playBtn = document.getElementById('play-btn');
+            const iframe = document.getElementById('youtube-iframe');
+
+            // Sample showcase editor video ID
+            iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+            
+            poster.classList.add('hidden');
+            overlay.classList.add('hidden');
+            playBtn.classList.add('hidden');
+            iframe.classList.remove('hidden');
+        }
+
+        // Booking Modal Logic
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("Awesome! We'll get back to you shortly.");
+            closeBookingModal();
+        }
+    </script>
+</body>
+</html>
