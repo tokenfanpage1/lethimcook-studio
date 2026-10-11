@@ -376,15 +376,23 @@
     <footer id="contact-section" class="w-full bg-darkbrown text-cream pt-16 pb-20 px-6 mt-16 text-center relative">
         <div class="max-w-3xl mx-auto">
             <p class="font-handwritten text-3xl text-mustard mb-4 font-bold">
-                got raw footage? let's talk.
+                got raw footage?
             </p>
 
-            <button onclick="openBookingModal()" class="font-display text-5xl md:text-7xl font-black text-cream hover:text-terracotta transition underline decoration-terracotta decoration-4 underline-offset-8">
-                book a call
+            
+            <button onclick="openBookingModal()"
+                class="font-display text-5xl md:text-7xl font-black text-cream hover:text-terracotta transition underline decoration-terracotta decoration-4 underline-offset-8">
+                let's work together
             </button>
 
             <p class="font-body text-sm text-cream/60 mt-8">
-                or send us an email directly: <a href="mailto:hello@lethimcook.studio" class="text-mustard font-bold hover:underline">hello@lethimcook.studio</a>
+                click on the text above
+                <br>
+                or email us directly:
+                <a href="mailto:djalovicmilos04@gmail.com"
+                class="text-mustard font-bold hover:underline">
+                lethimcook1@gmail.com
+                </a>
             </p>
 
             <div class="mt-16 pt-8 border-t border-cream/10 text-xs text-cream/40 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -394,39 +402,100 @@
         </div>
     </footer>
 
-    <div id="booking-modal" class="fixed inset-0 bg-darkbrown/80 modal-blur z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-paper border-4 border-darkbrown rounded-2xl max-w-md w-full p-8 relative shadow-2xl tilt-slightly">
-            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-darkbrown font-bold text-2xl hover:text-terracotta">
-                &times;
+    
+<div id="booking-modal"
+    class="fixed inset-0 bg-darkbrown/80 modal-blur z-50 hidden flex items-center justify-center p-4">
+
+    <div class="bg-paper border-4 border-darkbrown rounded-2xl max-w-md w-full p-8 relative shadow-2xl tilt-slightly max-h-[90vh] overflow-y-auto">
+
+        <button type="button" onclick="closeBookingModal()"
+            class="absolute top-4 right-4 text-darkbrown font-bold text-2xl hover:text-terracotta">
+            &times;
+        </button>
+
+        <h3 class="font-display text-3xl font-black text-darkbrown mb-2">
+            LET'S MAKE SOMETHING GOOD.
+        </h3>
+
+        <p class="font-handwritten text-2xl text-terracotta font-bold mb-6">
+            Tell us what you're cooking!
+        </p>
+
+        <form id="project-form"
+            action="https://script.google.com/macros/s/AKfycbyHamZjmyvWffvEBlHNKSeyOBT1feD0I-yyP6V8XcV4n8BXCz4afG678zf29nNIdPl9FA/exec"
+            method="POST"
+            target="form-response"
+            onsubmit="return submitProjectForm()"
+            class="space-y-4">
+
+            <div>
+                <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">
+                    Your name
+                </label>
+                <input type="text" name="name" required maxlength="100"
+                    placeholder="Alex"
+                    class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
+            </div>
+
+            <div>
+                <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">
+                    YouTube channel (optional)
+                </label>
+                <input type="url" name="channel" maxlength="300"
+                    placeholder="youtube.com/@yourchannel"
+                    class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
+            </div>
+
+            <div>
+                <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">
+                    What are you looking for?
+                </label>
+                <select name="package" required
+                    class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
+                    <option value="" disabled selected>
+                        Pick your package
+                    </option>
+                    <option value="1 video — €300">1 video — €300</option>
+                    <option value="4 videos — €600">4 videos — €600</option>
+                    <option value="8 videos — €1000">8 videos — €1000</option>
+                    <option value="Custom project">Something else</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">
+                    Tell us about your project
+                </label>
+                <textarea name="message" rows="3" required maxlength="3000"
+                    placeholder="What do you film? What kind of editing do you need?"
+                    class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta"></textarea>
+            </div>
+
+            <!-- Hidden anti-spam field -->
+            <div aria-hidden="true"
+                style="position:absolute;left:-9999px;height:1px;width:1px;overflow:hidden">
+                <input type="text" name="website" tabindex="-1"
+                    autocomplete="off">
+            </div>
+
+            <button id="submit-project-btn" type="submit"
+                class="w-full bg-terracotta hover:bg-burntorange text-cream font-display text-xl font-bold py-4 rounded-lg border-2 border-darkbrown transition shadow-md">
+                SEND IT OVER →
             </button>
-            
-            <h3 class="font-display text-3xl font-black text-darkbrown mb-2">
-                LET'S BOOK A CALL
-            </h3>
-            <p class="font-handwritten text-2xl text-terracotta font-bold mb-6">
-                no 45-minute slide deck. just 10 mins to see if we match.
+
+            <p id="form-status" role="status"
+                class="text-xs text-darkbrown/70 text-center" aria-live="polite">
+                No calls. Just good videos.
             </p>
 
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">Your Name</label>
-                    <input type="text" required placeholder="Alex" class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
-                </div>
-                <div>
-                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">YouTube Channel URL</label>
-                    <input type="url" required placeholder="youtube.com/@yourchannel" class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta">
-                </div>
-                <div>
-                    <label class="block font-body text-xs font-bold text-darkbrown uppercase mb-1">What are you editing?</label>
-                    <textarea rows="3" placeholder="I shoot podcasts / travel vlogs / tech reviews..." class="w-full px-4 py-3 bg-white border-2 border-darkbrown rounded-lg text-darkbrown focus:outline-none focus:border-terracotta"></textarea>
-                </div>
+        </form>
 
-                <button type="submit" class="w-full bg-terracotta hover:bg-burntorange text-cream font-display text-xl font-bold py-4 rounded-lg border-2 border-darkbrown transition shadow-md">
-                    SEND IT OVER
-                </button>
-            </form>
-        </div>
+        <iframe name="form-response" title="Form submission"
+            style="display:none"></iframe>
+
     </div>
+</div>
+
 
     <script>
         // Track reveal progress
@@ -478,6 +547,31 @@
             e.preventDefault();
             alert("Awesome! We'll get back to you shortly.");
             closeBookingModal();
+        }
+
+        function submitProjectForm() {
+            const form = document.getElementById('project-form');
+            const button = document.getElementById('submit-project-btn');
+            const status = document.getElementById('form-status');
+            const frame = document.querySelector(
+                'iframe[name="form-response"]'
+            );
+
+            if (!form.reportValidity()) return false;
+
+            button.disabled = true;
+            button.textContent = 'SENDING...';
+            status.textContent = 'Sending your project...';
+
+            frame.addEventListener('load', function onLoad() {
+                frame.removeEventListener('load', onLoad);
+                button.disabled = false;
+                button.textContent = 'SEND IT OVER →';
+                status.textContent =
+                    'Thanks! Check your submission details before closing.';
+            });
+
+            return true;
         }
     </script>
 </body>
