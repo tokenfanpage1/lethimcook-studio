@@ -724,33 +724,50 @@ span {
         </div>
 
         <!-- Price Notes Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            
-            <!-- Tier 1 -->
-            <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-right transition duration-300 text-center relative group">
-                <span class="font-display text-5xl font-black text-darkbrown block mb-1">€300</span>
-                <p class="font-handwritten text-2xl text-terracotta font-bold">for 1 long video.</p>
-                <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">great quality, trust. &#10003;</p>
-            </div>
+        
+<!-- Price Notes Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
-            <!-- Tier 2 (Highlighted) -->
-            <div class="p-6 rounded-2xl bg-white border-2 border-darkbrown shadow-xl tilt-right hover:scale-105 transition duration-300 text-center relative">
-                <div class="absolute -top-4 right-4 bg-mustard text-darkbrown font-handwritten font-bold text-lg px-3 py-0.5 rounded-full border border-darkbrown rotate-6">
-                    best value!
-                </div>
-                <span class="font-display text-6xl font-black text-terracotta block mb-1">€600</span>
-                <p class="font-handwritten text-2xl text-darkbrown font-bold">for 4 videos.</p>
-                <p class="font-body text-xs font-semibold text-darkbrown/80 mt-1">yeah, we're serious. &#10003;</p>
-            </div>
+    <!-- Long-form Video -->
+    <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-right transition duration-300 text-center relative group">
+        <span class="font-display text-5xl font-black text-darkbrown block mb-1">$335</span>
+        <p class="font-handwritten text-2xl text-terracotta font-bold">long-form video.</p>
+        <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">per video · 2 revisions included. &#10003;</p>
+    </div>
 
-            <!-- Tier 3 -->
-            <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-slightly transition duration-300 text-center relative">
-                <span class="font-display text-5xl font-black text-darkbrown block mb-1">€1000</span>
-                <p class="font-handwritten text-2xl text-softteal font-bold">for 8 videos.</p>
-                <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">trust us, you'll need them. &#10003;</p>
-            </div>
+    <!-- Short-form -->
+<div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-right transition duration-300 text-center relative group">
+    <span class="font-display text-5xl font-black text-darkbrown block mb-1">$100</span>
+    <p class="font-handwritten text-2xl text-terracotta font-bold">3 short-form clips.</p>
+    <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">$100 with a long-form video · $135 for short-form only. &#10003;</p>
+</div>
 
+    <!-- Thumbnail -->
+    <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-right transition duration-300 text-center relative group">
+        <span class="font-display text-5xl font-black text-darkbrown block mb-1">$55</span>
+        <p class="font-handwritten text-2xl text-softteal font-bold">custom thumbnail.</p>
+        <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">one thumbnail, made to stand out. &#10003;</p>
+    </div>
+
+    <!-- Full Package (Highlighted) -->
+    <div class="p-6 rounded-2xl bg-white border-2 border-darkbrown shadow-xl tilt-right hover:scale-105 transition duration-300 text-center relative">
+        <div class="absolute -top-4 right-4 bg-mustard text-darkbrown font-handwritten font-bold text-lg px-3 py-0.5 rounded-full border border-darkbrown rotate-6">
+            best value!
         </div>
+        <span class="font-display text-6xl font-black text-terracotta block mb-1">$450</span>
+        <p class="font-handwritten text-2xl text-darkbrown font-bold">the full package.</p>
+        <p class="font-body text-xs font-semibold text-darkbrown/80 mt-1">long-form + short-form + thumbnail. &#10003;</p>
+    </div>
+
+    <!-- Channel Management -->
+    <div class="p-6 rounded-2xl bg-paper border-2 border-darkbrown/20 tilt-left hover:tilt-slightly transition duration-300 text-center relative md:col-span-2">
+        <span class="font-display text-5xl font-black text-darkbrown block mb-1">$1,450–$2,600</span>
+        <p class="font-handwritten text-2xl text-softteal font-bold">channel management.</p>
+        <p class="font-body text-xs font-semibold text-darkbrown/70 mt-1">per month · depending on workload and scope of services. &#10003;</p>
+    </div>
+
+</div>
+
     </section>
 
     <section class="w-full bg-terracotta py-12 px-6 my-16 border-y-4 border-darkbrown relative overflow-hidden">
@@ -776,134 +793,179 @@ span {
         </div>
     </section>
 
-    <section id="reveal-sequence-container" class="max-w-3xl mx-auto px-4 my-8 min-h-[100px]">
-        
-        <!-- Step 1 Reveal: Creative Ideas -->
-        <div id="reveal-step-1" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Brainstorming Ideas" class="w-full h-48 object-cover">
-                </div>
-                <div class="w-full md:w-1/2 text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 01 / Ideas</span>
-                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
-                        "creative ideas — we sit, we argue, we come up with stuff. this is the part where your video gets good."
-                    </p>
-                    <button onclick="revealNextStep(2)" class="mt-6 sticky-btn bg-burntorange text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
-                        click me next
-                    </button>
-                </div>
+ 
+<!-- REVEAL SEQUENCE -->
+<section id="reveal-sequence-container" class="max-w-3xl mx-auto px-4 my-8 min-h-[100px]">
+
+    <!-- Step 1: The Plan -->
+    <div id="reveal-step-1" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+                <img src="images/laptop.jpg" alt="Planning and discussing ideas" class="class="w-full h-48 object-cover object-center"">
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 01 / The Plan</span>
+                <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                    "first, we talk. your vision, your style, your goals. we figure out exactly what you're looking for before we get started."
+                </p>
+                <button onclick="revealNextStep(2)" class="mt-6 sticky-btn bg-burntorange text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                    click me next
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Step 2 Reveal: Editing Magic -->
-        <div id="reveal-step-2" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-right">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
-                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=600&q=80" alt="Editing Timeline" class="w-full h-48 object-cover">
-                </div>
-                <div class="w-full md:w-1/2 text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-softteal font-mono">Step 02 / Editing</span>
-                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
-                        "editing — this is where the magic happens. or where we fix the mess."
-                    </p>
-                    <button onclick="revealNextStep(3)" class="mt-6 sticky-btn bg-softteal text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
-                        keep clicking
-                    </button>
-                </div>
+    <!-- Step 2: The Trial -->
+    <div id="reveal-step-2" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-right">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+<img src="images/editor.jpg" alt="Free trial video edit" class="class="w-full h-48 object-cover object-center"">            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <span class="text-xs font-bold uppercase tracking-widest text-softteal font-mono">Step 02 / The Trial</span>
+                <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                    "we match you with your dedicated editor, who puts together a free trial edit. no payment, no commitment. just a chance to see if we're the right fit."
+                </p>
+                <button onclick="revealNextStep(3)" class="mt-6 sticky-btn bg-softteal text-cream font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                    keep clicking
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Step 3 Reveal: Thumbnails -->
-        <div id="reveal-step-3" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-left">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Thumbnail Design Drafts" class="w-full h-48 object-cover">
-                </div>
-                <div class="w-full md:w-1/2 text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-mustard font-mono">Step 03 / Thumbnails</span>
-                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
-                        "thumbnails — we make people click. that's the whole job."
-                    </p>
-                    <button onclick="revealNextStep(4)" class="mt-6 sticky-btn bg-mustard text-darkbrown font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
-                        one more click
-                    </button>
-                </div>
+    <!-- Step 3: The Edit -->
+    <div id="reveal-step-3" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-left">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+<img src="images/the edit.jpg" alt="Full video editing process" class="class="w-full h-48 object-cover object-center"">            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <span class="text-xs font-bold uppercase tracking-widest text-mustard font-mono">Step 03 / The Edit</span>
+                <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                    "happy with the trial? awesome. your editor gets to work on the full video, bringing your vision to life, frame by frame."
+                </p>
+                <button onclick="revealNextStep(4)" class="mt-6 sticky-btn bg-mustard text-darkbrown font-display text-xl font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                    one more click
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Step 4 Reveal: Final Views & Outcome -->
-        <div id="reveal-step-4" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Analytics and Views" class="w-full h-48 object-cover">
-                </div>
-                <div class="w-full md:w-1/2 text-left">
-                    <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 04 / Results</span>
-                    <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
-                        "and then it goes out. and people watch. and you come back for more."
-                    </p>
-                    <a href="#boring-section" class="inline-block mt-6 sticky-btn bg-darkbrown text-cream font-display text-lg font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
-                        okay, that's enough clicking &#8595;
-                    </a>
-                </div>
+    <!-- Step 4: We're Here -->
+    <div id="reveal-step-4" class="hidden reveal-box bg-white border-3 border-darkbrown rounded-2xl p-6 md:p-8 shadow-2xl mb-8 relative tilt-slightly">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/2 rounded-xl overflow-hidden border-2 border-darkbrown">
+<img src="images/komunikacija.jpg" alt="Client communication and revision" class="class="w-full h-48 object-cover object-center"">            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta font-mono">Step 04 / We're Here</span>
+                <p class="font-handwritten text-2xl md:text-3xl text-darkbrown font-bold mt-2 leading-snug">
+                    "need a revision or have a question? we're here to listen, communicate, and make adjustments. you're never left figuring things out alone."
+                </p>
+                <a href="#boring-section" class="inline-block mt-6 sticky-btn bg-darkbrown text-cream font-display text-lg font-bold px-6 py-3 rounded-lg border-2 border-darkbrown uppercase">
+                    okay, that's enough clicking &#8595;
+                </a>
             </div>
         </div>
+    </div>
 
-    </section>
+</section>
 
-    <section id="boring-section" class="max-w-4xl mx-auto px-6 pt-16 pb-12 my-12 border-t-2 border-darkbrown/15">
-        <h2 class="font-display text-4xl md:text-5xl font-black text-darkbrown uppercase tracking-tight mb-8 text-left">
-            BORING STUFF
-        </h2>
+<!-- BORING STUFF -->
+<section id="boring-section" class="max-w-3xl mx-auto px-4 my-16">
 
-        <!-- 2x2 Grid of Plain-English Details -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            
-            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
-                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
-                    <span>&#10003;</span> What you get
+    <h2 class="font-display text-4xl md:text-5xl font-black text-darkbrown uppercase mb-8 text-center">
+        BORING STUFF
+    </h2>
+
+    <div class="bg-paper border-2 border-darkbrown/20 rounded-2xl p-6 md:p-8 shadow-xl space-y-7">
+
+        <!-- The Tools -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    The Tools
                 </h3>
-                <p class="text-darkbrown/90 text-sm leading-relaxed">
-                    A finished long-form edit, cleaned up audio, sound effects that actually make sense, and the master video ready for YouTube.
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    We work with Adobe Premiere Pro, After Effects, and DaVinci Resolve to bring your videos to life. The right tools for the right job.
                 </p>
             </div>
-
-            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
-                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
-                    <span>&#10003;</span> Revisions
-                </h3>
-                <p class="text-darkbrown/90 text-sm leading-relaxed">
-                    Two revision rounds are included. "Can we make the title pop more" is fine once. Not 6 times.
-                </p>
-            </div>
-
-            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
-                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
-                    <span>&#10003;</span> Turnaround
-                </h3>
-                <p class="text-darkbrown/90 text-sm leading-relaxed">
-                    Usually around 3-4 days. Good video editing takes a minute, and we prefer not sleeping on the floor.
-                </p>
-            </div>
-
-            <div class="p-6 rounded-xl bg-paper/80 border border-darkbrown/20">
-                <h3 class="font-display text-xl font-bold text-terracotta mb-2 flex items-center gap-2">
-                    <span>&#10003;</span> What we Don't do
-                </h3>
-                <p class="text-darkbrown/90 text-sm leading-relaxed">
-                    Daily vlog overhauls, 15-minute corporate webinars, or editing video clips for $5.
-                </p>
-            </div>
-
         </div>
 
-        <div class="mt-6 text-right">
-            <span class="font-handwritten text-xl text-softteal font-bold italic">
-                read 16:02. important stuff.
-            </span>
+        <!-- Payment -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    Payment
+                </h3>
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    We're flexible when it comes to payment. We'll discuss the available payment methods and agree on whatever works best for both of us before getting started.
+                </p>
+            </div>
         </div>
-    </section>
+
+        <!-- Turnaround -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    Turnaround
+                </h3>
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    Usually 1–5 days, depending on the complexity of your video. Some edits are quick, others need a little more love. We focus on getting it right, not just getting it out.
+                </p>
+            </div>
+        </div>
+
+        <!-- Revisions -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    Revisions
+                </h3>
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    Need changes? No problem. We're happy to refine the edit and make adjustments. However, turning the original project into a completely different video from scratch falls outside standard revisions and may require an additional fee.
+                </p>
+            </div>
+        </div>
+
+        <!-- Your Style, Your Rules -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    Your Style, Your Rules
+                </h3>
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    Got a specific style in mind? Or need help creating one from scratch? Maybe you already have a format you love and just want us to keep it going. Whatever you have in mind, don't hesitate to reach out. We'll adapt to your vision, not force you into ours.
+                </p>
+            </div>
+        </div>
+
+        <!-- Channel Management -->
+        <div class="flex items-start gap-3">
+            <span class="text-softteal text-xl font-bold">&#10003;</span>
+            <div>
+                <h3 class="font-display text-xl font-bold text-darkbrown mb-2">
+                    Channel Management
+                </h3>
+                <p class="font-body text-sm text-darkbrown/80 leading-relaxed">
+                    We handle everything from video editing, content planning, brainstorming ideas, and creating thumbnails to scheduling uploads, publishing videos, and managing comments. Before getting started, we'll discuss your goals and the areas where you need the most support to build a tailored workflow that fits your channel, style, and needs.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="font-handwritten text-xl md:text-2xl text-darkbrown text-center mt-6">
+        read carefully, we know it's boring, but it's important!
+    </p>
+
+</section>
+
+
+
+    
 
     <footer id="contact-section" class="w-full bg-darkbrown text-cream pt-16 pb-20 px-6 mt-16 text-center relative">
         <div class="max-w-3xl mx-auto">
