@@ -383,7 +383,7 @@ span {
     isolation: isolate;
 }
 
-/* Čovječuljak je iza slova, ali može da se dodirne */
+/* Character */
 #little-chef {
     position: absolute;
     z-index: 4;
@@ -400,31 +400,41 @@ span {
     transition: left 0.3s ease, top 0.3s ease;
 }
 
+/* Invisible hit area */
+#little-chef::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: -10px;
+    bottom: -8px;
+    z-index: 10;
+    cursor: pointer;
+}
+
 .chef-doodle {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
     overflow: visible;
 }
 
-/* Tekst je iznad njegovog tijela */
+/* Title */
 .cook-title {
     position: relative;
     z-index: 5;
+    pointer-events: none;
 }
 
-/* Poruka iznad čovječuljka */
+/* Speech bubble */
 #chef-bubble {
     position: absolute;
     z-index: 8;
-
-    /* Pozicija u odnosu na čovječuljka */
     left: 50%;
-    bottom: calc(100% + 4px);
-    top: auto;
+    bottom: calc(100% + 8px);
 
     width: max-content;
-    max-width: 190px;
+    max-width: min(190px, 75vw);
     padding: 8px 12px;
 
     background: #FFFDF6;
@@ -447,103 +457,74 @@ span {
     transition: opacity 0.2s ease;
 }
 
-#chef-bubble.show {
-    opacity: 1;
-    visibility: visible;
-}
-
 #chef-bubble.hide {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Lagano se pomjera dok čeka */
-@keyframes chef-idle {
-    0%, 100% { rotate: -3deg; translate: 0 0; }
-    50% { rotate: 3deg; translate: 0 -3px; }
+#chef-bubble.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Brzi skok kada pobjegne */
+/* Idle animation */
+@keyframes chef-idle {
+    0%, 100% {
+        rotate: -3deg;
+        translate: 0 0;
+    }
+
+    50% {
+        rotate: 3deg;
+        translate: 0 -3px;
+    }
+}
+
+/* Escape animation */
 #little-chef.chef-escape {
     animation: chef-jump 0.35s ease-in-out;
 }
 
 @keyframes chef-jump {
-    0% { scale: 1; rotate: 0deg; }
-    45% { scale: 1.12; rotate: 12deg; }
-    100% { scale: 1; rotate: -5deg; }
+    0% {
+        scale: 1;
+        rotate: 0deg;
+    }
+
+    45% {
+        scale: 1.12;
+        rotate: 12deg;
+    }
+
+    100% {
+        scale: 1;
+        rotate: -5deg;
+    }
 }
 
-/* Telefon */
+/* Spacing */
+#cook-playground {
+    margin-top: 38px;
+}
+
+/* Mobile */
 @media (max-width: 767px) {
-    #little-chef {
-        width: 46px;
-        height: 58px;
-        top: -24px;
+    #little-chef,
+    #chef-bubble {
+        display: none !important;
     }
 
-    #chef-bubble {
-        top: -66px;
-        max-width: 175px;
-        font-size: 19px;
+    #cook-playground {
+        margin-top: 0;
     }
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     #little-chef {
         animation: none;
         transition: none;
     }
-}/* Keep the speech bubble below LET HIM */
-#cook-playground {
-    margin-top: 38px;
-}
-
-#chef-bubble {
-    top: auto !important;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    right: auto;
-
-    /* Keep the bubble within the COOK area */
-    max-width: min(190px, 75vw);
-    white-space: normal;
-}
-
-/* Mobile spacing */
-@media (max-width: 767px) {
-    #cook-playground {
-        margin-top: 30px;
-    }
-
-    #chef-bubble {
-        max-width: 165px;
-        font-size: 18px;
-    }
-}/* Character stays behind the letters */
-#little-chef {
-    z-index: 4;
-    pointer-events: auto;
-    cursor: pointer;
-}
-
-/* Invisible hit area around the character */
-#little-chef::after {
-    content: "";
-    position: absolute;
-    left: -12px;
-    right: -12px;
-    top: -10px;
-    bottom: -8px;
-    z-index: 10;
-    cursor: pointer;
-}
-
-/* Letters remain visually in front */
-.cook-title {
-    position: relative;
-    z-index: 5;
-    pointer-events: none;
 }
     </style>
 </head>
@@ -640,12 +621,12 @@ span {
     </span>
 
     <span class="cook-title cook-title-mobile
-                 inline-block md:hidden font-display
-                 font-black tracking-wider
-                 text-terracotta hand-underline
-                 uppercase italic">
-        COOOOK
-    </span>
+             inline-block md:hidden font-display
+             text-6xl font-black tracking-wider
+             text-terracotta hand-underline
+             uppercase italic">
+    COOOOK
+</span>
 
 </div>
 
@@ -1079,7 +1060,7 @@ span {
 
             <p id="form-status" role="status"
                 class="text-xs text-darkbrown/70 text-center" aria-live="polite">
-                No calls. Just good videos.
+                We won't call you, promise!
             </p>
 
         </form>
